@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
 );
+// Note that React.StrictMode will cause all components to load twice in development
 root.render(
 	<React.StrictMode>
 		<App />
