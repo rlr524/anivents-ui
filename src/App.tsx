@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
-import Activity from "./models/Activity";
+import Event from "./models/Event";
 import { Header, List } from "semantic-ui-react";
 
 // import { ducks } from "./demo";
@@ -10,11 +10,11 @@ import { Header, List } from "semantic-ui-react";
 const baseURL = "http://localhost:5000/api/";
 
 const App = () => {
-	const [activities, setActivities] = useState([]);
+	const [events, setEvents] = useState([]);
 
 	useEffect(() => {
-		axios.get(`${baseURL}activities`).then((res) => {
-			setActivities(res.data);
+		axios.get(`${baseURL}events`).then((res) => {
+			setEvents(res.data);
 		});
 	}, []);
 
@@ -22,8 +22,8 @@ const App = () => {
 		<div>
 			<Header as={"h2"} icon={"users"} content={"AniVents"} />
 			<List>
-				{activities.map((activity: Activity) => (
-					<List.Item key={activity.id}>{activity.title}</List.Item>
+				{events.map((event: Event) => (
+					<List.Item key={event.id}>{event.title}</List.Item>
 				))}
 			</List>
 		</div>
